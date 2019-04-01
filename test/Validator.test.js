@@ -16,6 +16,13 @@ test('valid 2', () => {
   expect(received).toEqual(expected);
 });
 
+test('no valid two or more spaces', () => {
+  const received = new Validator();
+  const expected = () => received.validateUsername(' Name  user');
+
+  expect(expected).toThrow();
+});
+
 test('no valid', () => {
   const received = new Validator();
   const expected = () => received.validateUsername(' Name');
